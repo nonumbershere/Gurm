@@ -15,17 +15,10 @@ The world's best Chrome Dino Hack.
 # COMING
 - Mod Maker
 - Rotated Screen
-- Canvas moves to cursor
-
-
-# Credits
-Lapide
-
-# Inspired
-No one
 
 # Added
-- Rainbow Sky
+- Box To Cursor
+- Kinda ESP
 
 
 # CODE
@@ -195,4 +188,38 @@ setTimeout(function(){h.canvas.style.background="blue";},10000);
 setTimeout(function(){h.canvas.style.background="red";},20000);
 setTimeout(function(){spec();},30000);
 }
+```
+# Follow Box
+
+```js
+var x = 0;
+var y = 0;
+var g = document.createElement('div');
+g.style.height = '100px';
+g.style.background = 'red'
+g.style.width = '100px';
+g.style.position = 'fixed';
+function hg(e) {
+x = e.clientX;
+y = e.clientY;
+g.style.left = x+"px";
+g.style.top = y+"px";
+}
+document.body.onmousemove = hg;
+document.body.prepend(g);
+```
+
+# Kinda ESP
+
+```js
+var main2D = document.querySelector("#main-frame-error > div.runner-container > canvas").getContext('2d');
+var tRexName = "Ohe"
+var main = document.querySelector("#main-frame-error > div.runner-container > canvas")
+function showXY() {
+main2D.clearRect(Runner.instance_.tRex.xPos,Runner.instance_.tRex.yPos,90,90);
+main2D.fillStyle='black';
+main2D.fillText(`Y: ${Runner.instance_.tRex.yPos}  X: ${Runner.instance_.tRex.xPos}           NAME: ${tRexName}`, Runner.instance_.tRex.xPos,Runner.instance_.tRex.yPos + 15,90,90);
+requestAnimationFrame(showXY);
+}
+showXY();
 ```
