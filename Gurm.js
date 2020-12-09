@@ -50,7 +50,7 @@ g.style.top = y+"px";
 document.body.onmousemove = hg;
 document.body.prepend(g);
 }
-r.innerHTML='<button onclick="lag()">Lag</button><button onclick="op()">Low OP</button><button onclick="followBox();"></button><button onclick="showXY();">Kinda ESP</button><button onclick="light()">Light</button><button onclick="fg()">Box</button><button onclick="spec()">Rainbow Sky</button><button onclick="dark()">Dark</button>'
+r.innerHTML='<button onclick="lag()">Lag</button><button onclick="op()">Low OP</button><button onclick="followBox();">Box To Cursor</button><button onclick="showXY();">Kinda ESP</button><button onclick="light()">Light</button><button onclick="fg()">Box</button><button onclick="spec()">Rainbow Sky</button><button onclick="dark()">Dark</button>'
 function getLine() {
 h.fillText('Element Console',50,50);
 h.clearRect(50,50,20,20);
