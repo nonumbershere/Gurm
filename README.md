@@ -13,10 +13,14 @@ The world's best Chrome Dino Hack.
 - 9. You're all set!
 
 # COMING
-- Mod Maker
 - Rotated Screen
+- Custom Skins
+- Custom Sounds
+- Skin Loader[XTREME]
+- Sound Loader[XTREME]
 
 # Added
+- Mod Maker
 - Box To Cursor
 - Kinda ESP
 
