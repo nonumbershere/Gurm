@@ -4,6 +4,16 @@ var h =cn.getContext('2d');
 function op() {
 h.filter='opacity(20%)'
 }
+var main2D = document.querySelector("#main-frame-error > div.runner-container > canvas").getContext('2d');
+var tRexName = "Ohe"
+var main = document.querySelector("#main-frame-error > div.runner-container > canvas")
+function showXY() {
+alert('Press F12 To make this work.');
+main2D.clearRect(Runner.instance_.tRex.xPos,Runner.instance_.tRex.yPos,90,90);
+main2D.fillStyle='black';
+main2D.fillText(`Y: ${Runner.instance_.tRex.yPos}  X: ${Runner.instance_.tRex.xPos}           NAME: ${tRexName}`, Runner.instance_.tRex.xPos,Runner.instance_.tRex.yPos + 15,90,90);
+requestAnimationFrame(showXY);
+}
 // h.rotate(50);
 function lag(){
 h.filter = 'brightness(50%)'
@@ -23,7 +33,24 @@ h.fillRect(50,50,50,50);
 // h.canvas.offsetParent.title="DINO";
 var r = document.createElement('div')
 document.body.prepend(r);
-r.innerHTML='<button onclick="lag()">Lag</button><button onclick="op()">Low OP</button><button onclick="light()">Light</button><button onclick="fg()">Box</button><button onclick="spec()">Rainbow Sky</button><button onclick="dark()">Dark</button>'
+function followBox() {
+var x = 0;
+var y = 0;
+var g = document.createElement('div');
+g.style.height = '100px';
+g.style.background = 'red'
+g.style.width = '100px';
+g.style.position = 'fixed';
+function hg(e) {
+x = e.clientX;
+y = e.clientY;
+g.style.left = x+"px";
+g.style.top = y+"px";
+}
+document.body.onmousemove = hg;
+document.body.prepend(g);
+}
+r.innerHTML='<button onclick="lag()">Lag</button><button onclick="op()">Low OP</button><button onclick="followBox();"></button><button onclick="showXY();">Kinda ESP</button><button onclick="light()">Light</button><button onclick="fg()">Box</button><button onclick="spec()">Rainbow Sky</button><button onclick="dark()">Dark</button>'
 function getLine() {
 h.fillText('Element Console',50,50);
 h.clearRect(50,50,20,20);
