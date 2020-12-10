@@ -15,15 +15,9 @@ The world's best Chrome Dino Hack.
 # COMING
 - Rotated Screen
 - Custom Skins
-- Custom Sounds
-- Skin Loader[XTREME]
-- Sound Loader[XTREME]
 
 # Added
-- Mod Maker
-- Box To Cursor
-- Kinda ESP
-
+- Skin Loader[DINO API]
 
 # CODE
 
