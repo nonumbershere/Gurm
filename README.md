@@ -247,6 +247,26 @@ var dino = {
         skin1.src = url;
         skin2.src = url;
     },
+    skinChanger: {
+        normalSkin:function(){
+            dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/NONE%20COLORED/dino.png?raw=true');
+        },
+       noHead:function(){ dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/NONE%20COLORED/HeadLessDino(NO%20BLOOD%20VERSION).png?raw=true');
+                        },
+      blockHead: function(){
+dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/NONE%20COLORED/ChromeCraft.png?raw=true');
+},
+colorful: {
+        coloredDinos: function() {
+            dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/COLORED/ColoredTrexPack.png?raw=true');
+        },
+        dinoExe: function() {
+dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/COLORED/Horror%20Pack/DinoExe.png?raw=true');
+        },
+        pikachu: function() {                           dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/COLORED/Pikachu%20Skin%20NOT%20MINES.png?raw=true');
+        }
+    }
+},
     msgModules: {
     success: function(msg) {
         console.log('%c'+msg+'','color: green')
