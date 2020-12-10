@@ -239,6 +239,51 @@ g.style.top = y+"px";
 document.body.onmousemove = hg;
 document.body.prepend(g);
 ```
+# Dino API
+```js
+var dino = {
+    changeSkin: function(url) {
+        dino.modules.downloadSkinManager();
+        skin1.src = url;
+        skin2.src = url;
+    },
+    msgModules: {
+    success: function(msg) {
+        console.log('%c'+msg+'','color: green')
+    }
+},
+   modules: {
+        downloadSkinManager: function() {
+        dino.msgModules.success('installed packages: skin1, skin2')
+            var g =         document.querySelector("#offline-resources-1x");
+var g1 =         document.querySelector("#offline-resources-2x");
+window.skin1 = g;
+window.skin2 = g1;
+        
+        },
+        downloadDescription: function() {
+            dino.msgModules.success('installed packages: errorCode, descHeader, descTry, descOption1, descOption2')
+            var descHeader = document.querySelector("#main-message > h1 > span");
+var descTry = document.querySelector("#suggestions-list > p");
+var descOption1 = document.querySelector("#suggestions-list > ul > li:nth-child(1)");
+var descOption2 = document.querySelector("#suggestions-list > ul > li:nth-child(2)");
+var errorCode = document.querySelector("#error-information-popup-content > div.error-code");
+window.errorCode = errorCode;
+window.descHeader = descHeader;
+window.descTry = descTry;
+window.descOption1 = descOption1;
+window.descOption2 = descOption2;
+},
+        downloadCanvas: function() {
+            dino.msgModules.success('install packages: main, main2D')
+            var main = document.querySelector("#main-frame-error > div.runner-container > canvas");
+var main2D = main.getContext('2d');
+            window.main = main;
+            window.main2D = main2D;
+        }
+    }
+}
+```
 
 # Kinda ESP
 
