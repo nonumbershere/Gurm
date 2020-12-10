@@ -1,4 +1,66 @@
 // Made by lapide with an example!
+var dino = {
+    changeSkin: function(url) {
+        dino.modules.downloadSkinManager();
+        skin1.src = url;
+        skin2.src = url;
+    },
+    skinChanger: {
+        normalSkin:function(){
+            dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/NONE%20COLORED/dino.png?raw=true');
+        },
+       noHead:function(){ dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/NONE%20COLORED/HeadLessDino(NO%20BLOOD%20VERSION).png?raw=true');
+                        },
+      blockHead: function(){
+dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/NONE%20COLORED/ChromeCraft.png?raw=true');
+},
+colorful: {
+        coloredDinos: function() {
+            dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/COLORED/ColoredTrexPack.png?raw=true');
+        },
+        dinoExe: function() {
+dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/COLORED/Horror%20Pack/DinoExe.png?raw=true');
+        },
+        pikachu: function() {                           dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/COLORED/Pikachu%20Skin%20NOT%20MINES.png?raw=true');
+        }
+    }
+},
+    msgModules: {
+    success: function(msg) {
+        console.log('%c'+msg+'','color: green')
+    }
+},
+   modules: {
+        downloadSkinManager: function() {
+        dino.msgModules.success('installed packages: skin1, skin2')
+            var g =         document.querySelector("#offline-resources-1x");
+var g1 =         document.querySelector("#offline-resources-2x");
+window.skin1 = g;
+window.skin2 = g1;
+        
+        },
+        downloadDescription: function() {
+            dino.msgModules.success('installed packages: errorCode, descHeader, descTry, descOption1, descOption2')
+            var descHeader = document.querySelector("#main-message > h1 > span");
+var descTry = document.querySelector("#suggestions-list > p");
+var descOption1 = document.querySelector("#suggestions-list > ul > li:nth-child(1)");
+var descOption2 = document.querySelector("#suggestions-list > ul > li:nth-child(2)");
+var errorCode = document.querySelector("#error-information-popup-content > div.error-code");
+window.errorCode = errorCode;
+window.descHeader = descHeader;
+window.descTry = descTry;
+window.descOption1 = descOption1;
+window.descOption2 = descOption2;
+},
+        downloadCanvas: function() {
+            dino.msgModules.success('install packages: main, main2D')
+            var main = document.querySelector("#main-frame-error > div.runner-container > canvas");
+var main2D = main.getContext('2d');
+            window.main = main;
+            window.main2D = main2D;
+        }
+    }
+}
 var cn = document.querySelector("#main-frame-error > div.runner-container > canvas");
 var h =cn.getContext('2d');
 function op() {
