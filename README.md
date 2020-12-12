@@ -22,7 +22,438 @@ The world's best Chrome Dino Hack.
 # CODE
 
 ```js
-/ Made by lapide with an example!
+// Made by lapide with an example!
+var dino = {
+    changeSkin: function(url) {
+        dino.modules.downloadSkinManager();
+        skin1.src = url;
+        skin2.src = url;
+    },
+    skinChanger: {
+        normalSkin:function(){
+            dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/NONE%20COLORED/dino.png?raw=true');
+        },
+       noHead:function(){ dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/NONE%20COLORED/HeadLessDino(NO%20BLOOD%20VERSION).png?raw=true');
+                        },
+      blockHead: function(){
+dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/NONE%20COLORED/ChromeCraft.png?raw=true');
+},
+colorful: {
+        coloredDinos: function() {
+            dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/COLORED/ColoredTrexPack.png?raw=true');
+        },
+        dinoExe: function() {
+dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/COLORED/Horror%20Pack/DinoExe.png?raw=true');
+        },
+        pikachu: function() {                           dino.changeSkin('https://github.com/nonumbershere/SkinsForChromeDino/blob/master/COLORED/Pikachu%20Skin%20NOT%20MINES.png?raw=true');
+        }
+    }
+},
+    msgModules: {
+    success: function(msg) {
+        console.log('%c'+msg+'','color: green')
+    }
+},
+   modules: {
+        downloadSkinManager: function() {
+        dino.msgModules.success('installed packages: skin1, skin2')
+            var g =         document.querySelector("#offline-resources-1x");
+var g1 =         document.querySelector("#offline-resources-2x");
+window.skin1 = g;
+window.skin2 = g1;
+        
+        },
+        downloadDescription: function() {
+            dino.msgModules.success('installed packages: errorCode, descHeader, descTry, descOption1, descOption2')
+            var descHeader = document.querySelector("#main-message > h1 > span");
+var descTry = document.querySelector("#suggestions-list > p");
+var descOption1 = document.querySelector("#suggestions-list > ul > li:nth-child(1)");
+var descOption2 = document.querySelector("#suggestions-list > ul > li:nth-child(2)");
+var errorCode = document.querySelector("#error-information-popup-content > div.error-code");
+window.errorCode = errorCode;
+window.descHeader = descHeader;
+window.descTry = descTry;
+window.descOption1 = descOption1;
+window.descOption2 = descOption2;
+},
+        downloadCanvas: function() {
+            dino.msgModules.success('install packages: main, main2D')
+            var main = document.querySelector("#main-frame-error > div.runner-container > canvas");
+var main2D = main.getContext('2d');
+            window.main = main;
+            window.main2D = main2D;
+        },
+        installModmenus: function() {
+            function firstModmenu(){
+                /**
+ Keycodes
+ * http://www.openjs.com/scripts/events/keyboard_shortcuts/
+ * Version : 2.01.B
+ * By Binny V A
+ * License : BSD
+ */
+shortcut = {
+	'all_shortcuts':{},//All the shortcuts are stored in this array
+	'add': function(shortcut_combination,callback,opt) {
+		//Provide a set of default options
+		var default_options = {
+			'type':'keydown',
+			'propagate':false,
+			'disable_in_input':false,
+			'target':document,
+			'keycode':false
+		}
+		if(!opt) opt = default_options;
+		else {
+			for(var dfo in default_options) {
+				if(typeof opt[dfo] == 'undefined') opt[dfo] = default_options[dfo];
+			}
+		}
+
+		var ele = opt.target;
+		if(typeof opt.target == 'string') ele = document.getElementById(opt.target);
+		var ths = this;
+		shortcut_combination = shortcut_combination.toLowerCase();
+
+		//The function to be called at keypress
+		var func = function(e) {
+			e = e || window.event;
+			
+			if(opt['disable_in_input']) { //Don't enable shortcut keys in Input, Textarea fields
+				var element;
+				if(e.target) element=e.target;
+				else if(e.srcElement) element=e.srcElement;
+				if(element.nodeType==3) element=element.parentNode;
+
+				if(element.tagName == 'INPUT' || element.tagName == 'TEXTAREA') return;
+			}
+	
+			//Find Which key is pressed
+			if (e.keyCode) code = e.keyCode;
+			else if (e.which) code = e.which;
+			var character = String.fromCharCode(code).toLowerCase();
+			
+			if(code == 188) character=","; //If the user presses , when the type is onkeydown
+			if(code == 190) character="."; //If the user presses , when the type is onkeydown
+
+			var keys = shortcut_combination.split("+");
+			//Key Pressed - counts the number of valid keypresses - if it is same as the number of keys, the shortcut function is invoked
+			var kp = 0;
+			
+			//Work around for stupid Shift key bug created by using lowercase - as a result the shift+num combination was broken
+			var shift_nums = {
+				"`":"~",
+				"1":"!",
+				"2":"@",
+				"3":"#",
+				"4":"$",
+				"5":"%",
+				"6":"^",
+				"7":"&",
+				"8":"*",
+				"9":"(",
+				"0":")",
+				"-":"_",
+				"=":"+",
+				";":":",
+				"'":"\"",
+				",":"<",
+				".":">",
+				"/":"?",
+				"\\":"|"
+			}
+			//Special Keys - and their codes
+			var special_keys = {
+				'esc':27,
+				'escape':27,
+				'tab':9,
+				'space':32,
+				'return':13,
+				'enter':13,
+				'backspace':8,
+	
+				'scrolllock':145,
+				'scroll_lock':145,
+				'scroll':145,
+				'capslock':20,
+				'caps_lock':20,
+				'caps':20,
+				'numlock':144,
+				'num_lock':144,
+				'num':144,
+				
+				'pause':19,
+				'break':19,
+				
+				'insert':45,
+				'home':36,
+				'delete':46,
+				'end':35,
+				
+				'pageup':33,
+				'page_up':33,
+				'pu':33,
+	
+				'pagedown':34,
+				'page_down':34,
+				'pd':34,
+	
+				'left':37,
+				'up':38,
+				'right':39,
+				'down':40,
+	
+				'f1':112,
+				'f2':113,
+				'f3':114,
+				'f4':115,
+				'f5':116,
+				'f6':117,
+				'f7':118,
+				'f8':119,
+				'f9':120,
+				'f10':121,
+				'f11':122,
+				'f12':123
+			}
+	
+			var modifiers = { 
+				shift: { wanted:false, pressed:false},
+				ctrl : { wanted:false, pressed:false},
+				alt  : { wanted:false, pressed:false},
+				meta : { wanted:false, pressed:false}	//Meta is Mac specific
+			};
+                        
+			if(e.ctrlKey)	modifiers.ctrl.pressed = true;
+			if(e.shiftKey)	modifiers.shift.pressed = true;
+			if(e.altKey)	modifiers.alt.pressed = true;
+			if(e.metaKey)   modifiers.meta.pressed = true;
+                        
+			for(var i=0; k=keys[i],i<keys.length; i++) {
+				//Modifiers
+				if(k == 'ctrl' || k == 'control') {
+					kp++;
+					modifiers.ctrl.wanted = true;
+
+				} else if(k == 'shift') {
+					kp++;
+					modifiers.shift.wanted = true;
+
+				} else if(k == 'alt') {
+					kp++;
+					modifiers.alt.wanted = true;
+				} else if(k == 'meta') {
+					kp++;
+					modifiers.meta.wanted = true;
+				} else if(k.length > 1) { //If it is a special key
+					if(special_keys[k] == code) kp++;
+					
+				} else if(opt['keycode']) {
+					if(opt['keycode'] == code) kp++;
+
+				} else { //The special keys did not match
+					if(character == k) kp++;
+					else {
+						if(shift_nums[character] && e.shiftKey) { //Stupid Shift key bug created by using lowercase
+							character = shift_nums[character]; 
+							if(character == k) kp++;
+						}
+					}
+				}
+			}
+			
+			if(kp == keys.length && 
+						modifiers.ctrl.pressed == modifiers.ctrl.wanted &&
+						modifiers.shift.pressed == modifiers.shift.wanted &&
+						modifiers.alt.pressed == modifiers.alt.wanted &&
+						modifiers.meta.pressed == modifiers.meta.wanted) {
+				callback(e);
+	
+				if(!opt['propagate']) { //Stop the event
+					//e.cancelBubble is supported by IE - this will kill the bubbling process.
+					e.cancelBubble = true;
+					e.returnValue = false;
+	
+					//e.stopPropagation works in Firefox.
+					if (e.stopPropagation) {
+						e.stopPropagation();
+						e.preventDefault();
+					}
+					return false;
+				}
+			}
+		}
+		this.all_shortcuts[shortcut_combination] = {
+			'callback':func, 
+			'target':ele, 
+			'event': opt['type']
+		};
+		//Attach the function with the event
+		if(ele.addEventListener) ele.addEventListener(opt['type'], func, false);
+		else if(ele.attachEvent) ele.attachEvent('on'+opt['type'], func);
+		else ele['on'+opt['type']] = func;
+	},
+
+	//Remove the shortcut - just specify the shortcut and I will remove the binding
+	'remove':function(shortcut_combination) {
+		shortcut_combination = shortcut_combination.toLowerCase();
+		var binding = this.all_shortcuts[shortcut_combination];
+		delete(this.all_shortcuts[shortcut_combination])
+		if(!binding) return;
+		var type = binding['event'];
+		var ele = binding['target'];
+		var callback = binding['callback'];
+
+		if(ele.detachEvent) ele.detachEvent('on'+type, callback);
+		else if(ele.removeEventListener) ele.removeEventListener(type, callback, false);
+		else ele['on'+type] = false;
+	}
+}
+ /*  _____         _______                      
+  / ____|       |__   __|                     
+ | (___   ___ _ __ | |_ __ ___ _ __ ___   ___ 
+  \___ \ / _ \ '_ \| | '__/ _ \ '_ ` _ \ / _ \
+  ____) |  __/ |_) | | | |  __/ | | | | |  __/
+ |_____/ \___| .__/|_|_|  \___|_| |_| |_|\___|
+             | |                              
+             |_|
+             
+             
+             [
+             ALL RIGHTS GO TO LAPIDE
+             ]
+             [info]: [This is the "BEST" MOD MENU for chrome:dino]
+             
+             [patch log]: []
+             
+             [updates]: [Added speed soon close and open!]
+             Xtreme is with us!
+*/                                                                                           //                                                             Free!?!?!?!            
+
+// How to use
+/*
+     Click INJECT!
+     [another CREATOR menu is comming!]
+     HOW TO MAKE:
+     "TO" make a menu we will add in a "creator mod menu" for hack creators!
+     Includes javascript, html.
+     DONT WORRY IF YOU DONT KNOW "ANY" JAVASCRIPT OR HTML JUST GO TO THE FOLDER CALLED "How To"
+     THEN "ModMenuMaking"
+     COPY "tutorial1.js" AND PASTE IT TO THE DEV CONSOLE!
+     After that:
+     Go back to "How To" <-- ORIGINAL
+     Go to "CODES" <-- FOR ORIGINAL!
+     Copy and paste it on the "<button onclick="HERE!"></button>"
+     To get more codes go to the "Cheats" then go to the "Codes" Then go to "DEVCONSOLE" <-- Coming soon (;
+     Copy and paste them! and you are done....
+     WE WILL RELEASE A VIDEO OUT SOON!
+*/
+function makeBox(size, append, color) {
+    var box = document.createElement('div');
+    box.style.height=size+'px';
+    box.style.background=color;
+    box.style.width=size+'px';
+    append.insertBefore(box, append.firstChild);
+}
+var msgPrint = document.createElement('div');
+msgPrint.innerHTML='<div><font color="#ff0000">M</font><font color="#ff2a00">a</font><font color="#ff5500">d</font><font color="#ff7f00">e</font><font color="#ffaa00"> </font><font color="#ffd400">W</font><font color="#ffff00">i</font><font color="#bfff00">t</font><font color="#80ff00">h</font><font color="#40ff00"> </font><font color="#00ff00">X</font><font color="#00ff55">t</font><font color="#00ffaa">r</font><font color="#00ffff">e</font><font color="#00aaff">m</font><font color="#0055ff">e</font><font color="#0000ff">!</font></div><div></div><div><font color="#ff0000">+</font><font color="#ff2a00">S</font><font color="#ff5500">e</font><font color="#ff7f00">p</font><font color="#ffaa00">T</font><font color="#ffd400">r</font><font color="#ffff00">e</font><font color="#bfff00">m</font><font color="#80ff00">e</font></div>';
+document.body.prepend(msgPrint);
+msgPrint.style.right='50px';
+msgPrint.style.top='585px';
+msgPrint.style.fontWeight='bold';
+msgPrint.style.position='absolute';
+function makeTextBox(height, width, append, color, background, placeholder) {
+    var box = document.createElement('input');
+    box.style.height=height+'px';
+    box.placeholder=placeholder;
+    box.style.color=color;
+      box.style.background=background
+    box.style.width=width+'px';
+     box.innerText=text;
+    append.insertBefore(box, append.firstChild);
+}
+function makeButton(height, width, append, color, background, text) {
+      var box = document.createElement('button');
+    box.style.height=height+'px';
+    box.style.color=color;
+      box.style.background=background
+    box.style.width=width+'px';
+     box.innerText=text;
+    append.insertBefore(box, append.firstChild);
+}
+console.log('MADE WITH XTREME!');
+var Xtreme = {
+    Credits: function credits() {
+       console.log('Creator: Lapide');
+ },
+    SuccesLog: function sec(msg) {
+        console.log('%c{ %c[ %c' +msg +' %c] %c}', 'color: lightgreen;', 'color: green', 'color: darkgreen', 'color: green;', 'color: lightgreen'); 
+},
+   ErrorLog: function e(msg) {
+      console.log('%c{ %c[ %c' +msg +' %c] %c}', 'color: red;', 'color: red', 'color: darkred', 'color: red;', 'color: red'); 
+},
+  WarningLog: function f(msg) {
+      console.log('%c{ %c[ %c' +msg +' %c] %c}', 'color: yellow;', 'color: yellow', 'color: darkgreen', 'color: yellow;', 'color: yellow'); 
+},
+ CustomLog: function(msg, firstcolor, corner1color, middlecolor, cornercolor, lastcolor) {
+       console.log('%c{ %c[ %c' +msg +' %c] %c}', 'color: '+firstcolor, 'color: '+corner1color, 'color: '+middlecolor, 'color: '+cornercolor, 'color: '+lastcolor); 
+},
+ MoreSpeed: function e() {
+        ++Runner.instance_.currentSpeed
+},
+ MoreMoreSpeed: function e() {
+       Runner.instance_.setSpeed(100);
+},
+ SetSpeed: function e(speed) {
+     Runner.instance_.setSpeed(speed);
+},
+  GodMode: function e() {
+        Runner.instance_.gameOver=function(){}
+},
+ DisableGodMode: function e() {
+       var main = Runner.prototype.gameOver
+       Runner.instance_.gameOver=main
+},
+ gravity: function e(gravity) {
+    Runner.instance_.config.GRAVITY=gravity
+},
+ customSkin: function e(skinID) {
+     document.querySelector("#offline-resources-1x").src=skinID;
+     document.querySelector("#offline-resources-2x").src=skinID;
+},
+ colorFullSkin: function e(){ document.querySelector("#offline-resources-1x").src="https://github.com/nonumbershere/Skinz4ChromeDino/blob/master/COLORED/ColoredTrexPack.png?raw=true";document.querySelector("#offline-resources-2x").src="https://github.com/nonumbershere/Skinz4ChromeDino/blob/master/COLORED/ColoredTrexPack.png?raw=true"
+                            },
+ killChrome: function e(){ location.href=''
+                         }
+}
+// Will update soon!
+var styles = [
+    'background: linear-gradient(#D33106, #571402)'
+    , 'border: 1px solid #3E0E02'
+    , 'color: white'
+    , 'display: block'
+    , 'text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3)'
+    , 'box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 5px 3px -5px rgba(0, 0, 0, 0.5), 0 -13px 5px -10px rgba(255, 255, 255, 0.4) inset'
+    , 'line-height: 40px'
+    , 'text-align: center'
+    , 'font-weight: bold'
+    , 'cursor: pointer'
+].join(';');
+
+console.log('%cMade with xtreme!', styles);
+    /*let e=document;var ea = document.body;var g=document.body.append;var gt=document.body.insertBefore;var gta=document.body.prepend;*/let brown="brown";let red="red";let blue="blue";let green = "green";let yellow = "yellow";var menu = document.createElement('menuhack');var dis=Runner.prototype;let r=dis.gameOver;let c=Runner.instance_;menu.innerHTML=('<button onclick="Runner.instance_.gameOver=function(){}">GodMode</button><button onclick="Runner.instance_.setSpeed(0);">0 Speed</button><button onclick="Runner.instance_.gameOver=r">Disable Godmode</button><p>speedrunner:</p><button onclick="c.setSpeed(100);">Set Speed</button>');document.body.prepend(menu);
+shortcut.add('ctrl+x', function() {
+    msgPrint.remove();
+});
+/*
+  SHORCUT KEYS:
+ ctrl-x = Removes the CREATED WITH! msg!
+*/
+            }
+            window.installSeptremeModmenu = firstModmenu;
+        }
+    }
+}
 var dino = {
     changeSkin: function(url) {
         dino.modules.downloadSkinManager();
@@ -1032,6 +1463,375 @@ window.descOption2 = descOption2;
 var main2D = main.getContext('2d');
             window.main = main;
             window.main2D = main2D;
+        },
+        installModmenus: function() {
+            function firstModmenu(){
+                /**
+ Keycodes
+ * http://www.openjs.com/scripts/events/keyboard_shortcuts/
+ * Version : 2.01.B
+ * By Binny V A
+ * License : BSD
+ */
+shortcut = {
+	'all_shortcuts':{},//All the shortcuts are stored in this array
+	'add': function(shortcut_combination,callback,opt) {
+		//Provide a set of default options
+		var default_options = {
+			'type':'keydown',
+			'propagate':false,
+			'disable_in_input':false,
+			'target':document,
+			'keycode':false
+		}
+		if(!opt) opt = default_options;
+		else {
+			for(var dfo in default_options) {
+				if(typeof opt[dfo] == 'undefined') opt[dfo] = default_options[dfo];
+			}
+		}
+
+		var ele = opt.target;
+		if(typeof opt.target == 'string') ele = document.getElementById(opt.target);
+		var ths = this;
+		shortcut_combination = shortcut_combination.toLowerCase();
+
+		//The function to be called at keypress
+		var func = function(e) {
+			e = e || window.event;
+			
+			if(opt['disable_in_input']) { //Don't enable shortcut keys in Input, Textarea fields
+				var element;
+				if(e.target) element=e.target;
+				else if(e.srcElement) element=e.srcElement;
+				if(element.nodeType==3) element=element.parentNode;
+
+				if(element.tagName == 'INPUT' || element.tagName == 'TEXTAREA') return;
+			}
+	
+			//Find Which key is pressed
+			if (e.keyCode) code = e.keyCode;
+			else if (e.which) code = e.which;
+			var character = String.fromCharCode(code).toLowerCase();
+			
+			if(code == 188) character=","; //If the user presses , when the type is onkeydown
+			if(code == 190) character="."; //If the user presses , when the type is onkeydown
+
+			var keys = shortcut_combination.split("+");
+			//Key Pressed - counts the number of valid keypresses - if it is same as the number of keys, the shortcut function is invoked
+			var kp = 0;
+			
+			//Work around for stupid Shift key bug created by using lowercase - as a result the shift+num combination was broken
+			var shift_nums = {
+				"`":"~",
+				"1":"!",
+				"2":"@",
+				"3":"#",
+				"4":"$",
+				"5":"%",
+				"6":"^",
+				"7":"&",
+				"8":"*",
+				"9":"(",
+				"0":")",
+				"-":"_",
+				"=":"+",
+				";":":",
+				"'":"\"",
+				",":"<",
+				".":">",
+				"/":"?",
+				"\\":"|"
+			}
+			//Special Keys - and their codes
+			var special_keys = {
+				'esc':27,
+				'escape':27,
+				'tab':9,
+				'space':32,
+				'return':13,
+				'enter':13,
+				'backspace':8,
+	
+				'scrolllock':145,
+				'scroll_lock':145,
+				'scroll':145,
+				'capslock':20,
+				'caps_lock':20,
+				'caps':20,
+				'numlock':144,
+				'num_lock':144,
+				'num':144,
+				
+				'pause':19,
+				'break':19,
+				
+				'insert':45,
+				'home':36,
+				'delete':46,
+				'end':35,
+				
+				'pageup':33,
+				'page_up':33,
+				'pu':33,
+	
+				'pagedown':34,
+				'page_down':34,
+				'pd':34,
+	
+				'left':37,
+				'up':38,
+				'right':39,
+				'down':40,
+	
+				'f1':112,
+				'f2':113,
+				'f3':114,
+				'f4':115,
+				'f5':116,
+				'f6':117,
+				'f7':118,
+				'f8':119,
+				'f9':120,
+				'f10':121,
+				'f11':122,
+				'f12':123
+			}
+	
+			var modifiers = { 
+				shift: { wanted:false, pressed:false},
+				ctrl : { wanted:false, pressed:false},
+				alt  : { wanted:false, pressed:false},
+				meta : { wanted:false, pressed:false}	//Meta is Mac specific
+			};
+                        
+			if(e.ctrlKey)	modifiers.ctrl.pressed = true;
+			if(e.shiftKey)	modifiers.shift.pressed = true;
+			if(e.altKey)	modifiers.alt.pressed = true;
+			if(e.metaKey)   modifiers.meta.pressed = true;
+                        
+			for(var i=0; k=keys[i],i<keys.length; i++) {
+				//Modifiers
+				if(k == 'ctrl' || k == 'control') {
+					kp++;
+					modifiers.ctrl.wanted = true;
+
+				} else if(k == 'shift') {
+					kp++;
+					modifiers.shift.wanted = true;
+
+				} else if(k == 'alt') {
+					kp++;
+					modifiers.alt.wanted = true;
+				} else if(k == 'meta') {
+					kp++;
+					modifiers.meta.wanted = true;
+				} else if(k.length > 1) { //If it is a special key
+					if(special_keys[k] == code) kp++;
+					
+				} else if(opt['keycode']) {
+					if(opt['keycode'] == code) kp++;
+
+				} else { //The special keys did not match
+					if(character == k) kp++;
+					else {
+						if(shift_nums[character] && e.shiftKey) { //Stupid Shift key bug created by using lowercase
+							character = shift_nums[character]; 
+							if(character == k) kp++;
+						}
+					}
+				}
+			}
+			
+			if(kp == keys.length && 
+						modifiers.ctrl.pressed == modifiers.ctrl.wanted &&
+						modifiers.shift.pressed == modifiers.shift.wanted &&
+						modifiers.alt.pressed == modifiers.alt.wanted &&
+						modifiers.meta.pressed == modifiers.meta.wanted) {
+				callback(e);
+	
+				if(!opt['propagate']) { //Stop the event
+					//e.cancelBubble is supported by IE - this will kill the bubbling process.
+					e.cancelBubble = true;
+					e.returnValue = false;
+	
+					//e.stopPropagation works in Firefox.
+					if (e.stopPropagation) {
+						e.stopPropagation();
+						e.preventDefault();
+					}
+					return false;
+				}
+			}
+		}
+		this.all_shortcuts[shortcut_combination] = {
+			'callback':func, 
+			'target':ele, 
+			'event': opt['type']
+		};
+		//Attach the function with the event
+		if(ele.addEventListener) ele.addEventListener(opt['type'], func, false);
+		else if(ele.attachEvent) ele.attachEvent('on'+opt['type'], func);
+		else ele['on'+opt['type']] = func;
+	},
+
+	//Remove the shortcut - just specify the shortcut and I will remove the binding
+	'remove':function(shortcut_combination) {
+		shortcut_combination = shortcut_combination.toLowerCase();
+		var binding = this.all_shortcuts[shortcut_combination];
+		delete(this.all_shortcuts[shortcut_combination])
+		if(!binding) return;
+		var type = binding['event'];
+		var ele = binding['target'];
+		var callback = binding['callback'];
+
+		if(ele.detachEvent) ele.detachEvent('on'+type, callback);
+		else if(ele.removeEventListener) ele.removeEventListener(type, callback, false);
+		else ele['on'+type] = false;
+	}
+}
+ /*  _____         _______                      
+  / ____|       |__   __|                     
+ | (___   ___ _ __ | |_ __ ___ _ __ ___   ___ 
+  \___ \ / _ \ '_ \| | '__/ _ \ '_ ` _ \ / _ \
+  ____) |  __/ |_) | | | |  __/ | | | | |  __/
+ |_____/ \___| .__/|_|_|  \___|_| |_| |_|\___|
+             | |                              
+             |_|
+             
+             
+             [
+             ALL RIGHTS GO TO LAPIDE
+             ]
+             [info]: [This is the "BEST" MOD MENU for chrome:dino]
+             
+             [patch log]: []
+             
+             [updates]: [Added speed soon close and open!]
+             Xtreme is with us!
+*/                                                                                           //                                                             Free!?!?!?!            
+
+// How to use
+/*
+     Click INJECT!
+     [another CREATOR menu is comming!]
+     HOW TO MAKE:
+     "TO" make a menu we will add in a "creator mod menu" for hack creators!
+     Includes javascript, html.
+     DONT WORRY IF YOU DONT KNOW "ANY" JAVASCRIPT OR HTML JUST GO TO THE FOLDER CALLED "How To"
+     THEN "ModMenuMaking"
+     COPY "tutorial1.js" AND PASTE IT TO THE DEV CONSOLE!
+     After that:
+     Go back to "How To" <-- ORIGINAL
+     Go to "CODES" <-- FOR ORIGINAL!
+     Copy and paste it on the "<button onclick="HERE!"></button>"
+     To get more codes go to the "Cheats" then go to the "Codes" Then go to "DEVCONSOLE" <-- Coming soon (;
+     Copy and paste them! and you are done....
+     WE WILL RELEASE A VIDEO OUT SOON!
+*/
+function makeBox(size, append, color) {
+    var box = document.createElement('div');
+    box.style.height=size+'px';
+    box.style.background=color;
+    box.style.width=size+'px';
+    append.insertBefore(box, append.firstChild);
+}
+var msgPrint = document.createElement('div');
+msgPrint.innerHTML='<div><font color="#ff0000">M</font><font color="#ff2a00">a</font><font color="#ff5500">d</font><font color="#ff7f00">e</font><font color="#ffaa00"> </font><font color="#ffd400">W</font><font color="#ffff00">i</font><font color="#bfff00">t</font><font color="#80ff00">h</font><font color="#40ff00"> </font><font color="#00ff00">X</font><font color="#00ff55">t</font><font color="#00ffaa">r</font><font color="#00ffff">e</font><font color="#00aaff">m</font><font color="#0055ff">e</font><font color="#0000ff">!</font></div><div></div><div><font color="#ff0000">+</font><font color="#ff2a00">S</font><font color="#ff5500">e</font><font color="#ff7f00">p</font><font color="#ffaa00">T</font><font color="#ffd400">r</font><font color="#ffff00">e</font><font color="#bfff00">m</font><font color="#80ff00">e</font></div>';
+document.body.prepend(msgPrint);
+msgPrint.style.right='50px';
+msgPrint.style.top='585px';
+msgPrint.style.fontWeight='bold';
+msgPrint.style.position='absolute';
+function makeTextBox(height, width, append, color, background, placeholder) {
+    var box = document.createElement('input');
+    box.style.height=height+'px';
+    box.placeholder=placeholder;
+    box.style.color=color;
+      box.style.background=background
+    box.style.width=width+'px';
+     box.innerText=text;
+    append.insertBefore(box, append.firstChild);
+}
+function makeButton(height, width, append, color, background, text) {
+      var box = document.createElement('button');
+    box.style.height=height+'px';
+    box.style.color=color;
+      box.style.background=background
+    box.style.width=width+'px';
+     box.innerText=text;
+    append.insertBefore(box, append.firstChild);
+}
+console.log('MADE WITH XTREME!');
+var Xtreme = {
+    Credits: function credits() {
+       console.log('Creator: Lapide');
+ },
+    SuccesLog: function sec(msg) {
+        console.log('%c{ %c[ %c' +msg +' %c] %c}', 'color: lightgreen;', 'color: green', 'color: darkgreen', 'color: green;', 'color: lightgreen'); 
+},
+   ErrorLog: function e(msg) {
+      console.log('%c{ %c[ %c' +msg +' %c] %c}', 'color: red;', 'color: red', 'color: darkred', 'color: red;', 'color: red'); 
+},
+  WarningLog: function f(msg) {
+      console.log('%c{ %c[ %c' +msg +' %c] %c}', 'color: yellow;', 'color: yellow', 'color: darkgreen', 'color: yellow;', 'color: yellow'); 
+},
+ CustomLog: function(msg, firstcolor, corner1color, middlecolor, cornercolor, lastcolor) {
+       console.log('%c{ %c[ %c' +msg +' %c] %c}', 'color: '+firstcolor, 'color: '+corner1color, 'color: '+middlecolor, 'color: '+cornercolor, 'color: '+lastcolor); 
+},
+ MoreSpeed: function e() {
+        ++Runner.instance_.currentSpeed
+},
+ MoreMoreSpeed: function e() {
+       Runner.instance_.setSpeed(100);
+},
+ SetSpeed: function e(speed) {
+     Runner.instance_.setSpeed(speed);
+},
+  GodMode: function e() {
+        Runner.instance_.gameOver=function(){}
+},
+ DisableGodMode: function e() {
+       var main = Runner.prototype.gameOver
+       Runner.instance_.gameOver=main
+},
+ gravity: function e(gravity) {
+    Runner.instance_.config.GRAVITY=gravity
+},
+ customSkin: function e(skinID) {
+     document.querySelector("#offline-resources-1x").src=skinID;
+     document.querySelector("#offline-resources-2x").src=skinID;
+},
+ colorFullSkin: function e(){ document.querySelector("#offline-resources-1x").src="https://github.com/nonumbershere/Skinz4ChromeDino/blob/master/COLORED/ColoredTrexPack.png?raw=true";document.querySelector("#offline-resources-2x").src="https://github.com/nonumbershere/Skinz4ChromeDino/blob/master/COLORED/ColoredTrexPack.png?raw=true"
+                            },
+ killChrome: function e(){ location.href=''
+                         }
+}
+// Will update soon!
+var styles = [
+    'background: linear-gradient(#D33106, #571402)'
+    , 'border: 1px solid #3E0E02'
+    , 'color: white'
+    , 'display: block'
+    , 'text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3)'
+    , 'box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset, 0 5px 3px -5px rgba(0, 0, 0, 0.5), 0 -13px 5px -10px rgba(255, 255, 255, 0.4) inset'
+    , 'line-height: 40px'
+    , 'text-align: center'
+    , 'font-weight: bold'
+    , 'cursor: pointer'
+].join(';');
+
+console.log('%cMade with xtreme!', styles);
+    /*let e=document;var ea = document.body;var g=document.body.append;var gt=document.body.insertBefore;var gta=document.body.prepend;*/let brown="brown";let red="red";let blue="blue";let green = "green";let yellow = "yellow";var menu = document.createElement('menuhack');var dis=Runner.prototype;let r=dis.gameOver;let c=Runner.instance_;menu.innerHTML=('<button onclick="Runner.instance_.gameOver=function(){}">GodMode</button><button onclick="Runner.instance_.setSpeed(0);">0 Speed</button><button onclick="Runner.instance_.gameOver=r">Disable Godmode</button><p>speedrunner:</p><button onclick="c.setSpeed(100);">Set Speed</button>');document.body.prepend(menu);
+shortcut.add('ctrl+x', function() {
+    msgPrint.remove();
+});
+/*
+  SHORCUT KEYS:
+ ctrl-x = Removes the CREATED WITH! msg!
+*/
+            }
+            window.installSeptremeModmenu = firstModmenu;
         }
     }
 }
