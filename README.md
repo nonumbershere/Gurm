@@ -1851,3 +1851,21 @@ requestAnimationFrame(showXY);
 }
 showXY();
 ```
+
+# Toolide | Tool-Ide
+
+```js
+var TI = {
+    setAutoClicker: function(element, secs) {
+        function el() {
+            element.click();
+            var g = setTimeout(function(){el()},secs);
+            window.g = g;
+        }
+        el();
+    },
+    endAutoClickers: function() {
+        clearTimeout(g);
+    }
+}
+```
